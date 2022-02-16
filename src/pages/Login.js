@@ -53,6 +53,7 @@ export const Login = props => {
             />
             <form>
                 {msgErro && <p>{msgErro}</p>}
+                <>
                 <Input
                     srcImg={mail}
                     altImg="Icone login"
@@ -60,8 +61,9 @@ export const Login = props => {
                     inputName="login"
                     inputPlaceholder="Informe seu Email"
                     value={login}
-                    setValue={setLogin}
-                />
+                    setValue={setLogin} />
+                </>
+                <>
                 <Input
                     srcImg={lock}
                     altImg={"Icone cadeado"}
@@ -69,8 +71,8 @@ export const Login = props => {
                     inputName="senha"
                     inputPlaceholder="Informe sua senha"
                     value={senha}
-                    setValue={setSenha}
-                />
+                    setValue={setSenha} />
+                </>
                 <button onClick={executaLogin} disabled={isLoading}>{isLoading === true ? 'Carregando' : 'Entrar'}</button>
             </form>
         </div>
