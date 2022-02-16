@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logoDevaria from '../assets/icons/devaria-logo.svg';
+import logoDevaria from '../assets/icons/devaria-logo.png';
 import mail from '../assets/icons/mail.svg';
 import lock from '../assets/icons/lock.svg';
 import { executaRequisicao } from '../services/api';
