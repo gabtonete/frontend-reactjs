@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import filtro from '../assets/icons/filtro.svg'
+import filtro from '../assets/icons/filtro.svg';
 
 export const Filtros = props => {
 

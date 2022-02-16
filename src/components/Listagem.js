@@ -1,6 +1,6 @@
 import React from 'react';
 import vetor from '../assets/icons/vetor.svg';
-import { Tarefa } from './Tarefa'
+import { Tarefa } from './Tarefa';
 
 export const Listagem = props => {
 

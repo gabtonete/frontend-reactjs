@@ -1,7 +1,7 @@
 import React from 'react';
-import elipse from '../assets/icons/elipse.svg'
-import check from '../assets/icons/check.svg'
-import moment from 'moment'
+import elipse from '../assets/icons/elipse.svg';
+import check from '../assets/icons/check.svg';
+import moment from 'moment';
 
 export const Tarefa = props => {
 

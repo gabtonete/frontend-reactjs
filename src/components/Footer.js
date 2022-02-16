@@ -1,5 +1,5 @@
 import React from 'react';
-import plus from '../assets/icons/plus.svg'
+import plus from '../assets/icons/plus.svg';
 
 
 export const Footer = props => {
