@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const URL = process.env.REACT_APP_API_URL+'/api/'
+const URL = 'http://apirestgabrielt.herokuapp.com/api/'
 const instance = axios.create({
     baseURL: URL,
     timeout: 30000

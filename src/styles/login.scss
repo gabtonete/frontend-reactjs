@@ -9,7 +9,6 @@
     }
 
     p{
-        max-width: 280px;
         text-align: center;
         color: $errorColor;
         font-weight: bold;
@@ -30,6 +29,7 @@
         display: flex;
         flex-direction: row;
         padding: 10px;
+        align-items: center;
 
         img{
             margin-top: -20px;

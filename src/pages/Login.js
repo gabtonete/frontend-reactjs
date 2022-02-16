@@ -28,12 +28,17 @@ export const Login = props => {
                 localStorage.setItem('accessToken', resultado.data.token);
                 localStorage.setItem('usuarioNome', resultado.data.nome);
                 localStorage.setItem('usuarioEmail', resultado.data.email);
+
                 props.setAccessToken(resultado.data.token);
             };
         } catch (e) {
             console.log(e);
-            if (e?.response?.data?.erro)
+            if (e?.response?.data?.erro){
                 setMsgErro(e.response.data.erro);
+            }else{
+                setMsgErro('Não foi possível efetuar o login, tente novamente')
+            }
+            
         }
 
         setLoading(false);
