@@ -45,7 +45,7 @@ export const Login = props => {
 
     }
     return (
-        <div className="container-login">
+        /*<div className="container-login">
             <img
                 src={logoDevaria}
                 alt="Logo da Devaria"
@@ -73,6 +73,7 @@ export const Login = props => {
                 />
                 <button onClick={executaLogin} disabled={isLoading}>{isLoading === true ? 'Carregando' : 'Entrar'}</button>
             </form>
-        </div>
+        </div>*/
+        <div></div>
     );
 }
