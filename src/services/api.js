@@ -7,7 +7,7 @@ const instance = axios.create({
 });
 
 export const executaRequisicao = (endpoint, method, body) => {
-    console.log(`executando: ${API_URL}${endpoint}, método: ${method}, body: ${body}`)
+    console.log(`executando: ${endpoint}, método: ${method}, body: ${body}`)
 
     return instance.request({
         url: endpoint,
