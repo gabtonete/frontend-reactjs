@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 
-const URL = 'apirestgabrielt.herokuapp.com/api/'
+const URL = 'https://apirestgabrielt.herokuapp.com/api/'
 const instance = axios.create({
     baseURL: URL,
     timeout: 30000
