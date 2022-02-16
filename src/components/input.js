@@ -1,4 +1,4 @@
-export const Input = props => {
+/*export const Input = props => {
     const {
         srcImg,
         altImg,
@@ -16,4 +16,4 @@ export const Input = props => {
                 value={value} onChange={evento => setValue(evento.target.value)} />
         </div>
     );
-}
+}*/
