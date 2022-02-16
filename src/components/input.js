@@ -1,7 +1,6 @@
 import React from 'react';
 
 export const Input = props => {
-
     const {
         srcImg,
         altImg,

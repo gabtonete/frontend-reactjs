@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import logoDevaria from '../assets/icons/devaria-logo.svg';
 import mail from '../assets/icons/mail.svg';
 import lock from '../assets/icons/lock.svg';
-//import { Input } from '../components/Input';
+import { Input } from '../components/Input';
 import { executaRequisicao } from '../services/api';
 
 
@@ -45,7 +45,7 @@ export const Login = props => {
 
     }
     return (
-        /*<div className="container-login">
+        <div className="container-login">
             <img
                 src={logoDevaria}
                 alt="Logo da Devaria"
@@ -73,7 +73,6 @@ export const Login = props => {
                 />
                 <button onClick={executaLogin} disabled={isLoading}>{isLoading === true ? 'Carregando' : 'Entrar'}</button>
             </form>
-        </div>*/
-        <div></div>
+        </div>
     );
 }
