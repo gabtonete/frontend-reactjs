@@ -25,16 +25,16 @@ export const Filtros = props => {
                 <div className="form">
                     <div>
                         <label>Data prevista de conclusão:</label>
-                        <input type="date" />
+                        <input type="date" value={periodoDe} onChange={evento => setPeriodoDe(evento.target.value)} />
                     </div>
                     <div>
                         <label>até:</label>
-                        <input type="date" />
+                        <input type="date" value={periodoAte} onChange={evento => setPeriodoAte(evento.target.value)} />
                     </div>
                     <div className="line" />
                     <div>
                         <label>Status:</label>
-                        <select>
+                        <select value={status} onChange={evento => setStatus(evento.target.value)}>
                             <option value={0}>Todas</option>
                             <option value={1}>Ativas</option>
                             <option value={2}>Concluídas</option>
@@ -46,16 +46,15 @@ export const Filtros = props => {
                 <div className="filtrosMobile">
                     <div>
                         <label>Período de:</label>
-                        <input type="date" value={periodoDe} onChange={evento => setPeriodoDe(evento.target.value)} />
+                        <input type="date" />
                     </div>
                     <div>
                         <label>até:</label>
-                        <input type="date" value={periodoAte} onChange={evento => setPeriodoAte(evento.target.value)} />
+                        <input type="date" />
                     </div>
                     <div>
                         <label>Status:</label>
-                        <select
-                            value={status} onChange={evento => setStatus(evento.target.value)}>
+                        <select>
                             <option value={0}>Todas</option>
                             <option value={1}>Ativas</option>
                             <option value={2}>Concluídas</option>
