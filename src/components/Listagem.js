@@ -15,6 +15,7 @@ export const Listagem = props => {
                 :
                 <>
                     <img src={vetor} alt="Nenhuma atividade encontrada" />
+                    <p>Você ainda não possui tarefas cadastradas!</p>
                 </>
 
             }
