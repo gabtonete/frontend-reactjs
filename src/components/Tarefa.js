@@ -17,7 +17,7 @@ export const Tarefa = props => {
     };
     
     return (
-        <div className={"container-tarefa " + (dataConclusao ? "" : "ativo")}>
+        <div className={"container-tarefa " + (dataConclusao == null ? "ativo" : "")}>
             <img
                 src={dataConclusao ? check : elipse}
                 alt={dataConclusao ? "tarefa concluída" : "selecine a tarefa"} />
