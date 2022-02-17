@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import logoDevaria from '../assets/icons/devaria-logo.png';
+import logoDevaria from '../assets/icons/devaria-logo.svg';
+import { Input } from '../components/Input';
 import mail from '../assets/icons/mail.svg';
 import lock from '../assets/icons/lock.svg';
 import { executaRequisicao } from '../services/api';
@@ -52,16 +53,24 @@ export const Login = props => {
             />
             <form>
                 {msgErro && <p>{msgErro}</p>}
-                <div className="input">
-                    <img src={mail} alt="login" />
-                    <input type='text' name='login' placeholder='Digite seu login'
-                        value={login} onChange={evento => setLogin(evento.target.value)} />
-                </div>
-                <div className="input">
-                    <img src={lock} alt="senha" />
-                    <input type='password' name='senha' placeholder='Digite sua senha'
-                        value={senha} onChange={evento => setSenha(evento.target.value)} />
-                </div>
+                <Input
+                    srcImg={mail}
+                    srcAlt="Login devaria"
+                    inputType="text"
+                    inputName="login"
+                    inputPlaceholder="Digite seu login"
+                    value={login}
+                    setValue={setLogin}
+                />
+                <Input
+                    srcImg={lock}
+                    srcAlt="Senha devaria"
+                    inputType="password"
+                    inputName="senha"
+                    inputPlaceholder="Digite sua senha"
+                    value={senha}
+                    setValue={setSenha}
+                />
                 <button onClick={executaLogin} disabled={isLoading}>{isLoading === true ? 'Carregando' : 'Entrar'}</button>
             </form>
         </div>

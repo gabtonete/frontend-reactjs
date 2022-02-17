@@ -1,7 +1,7 @@
 import React from 'react';
 import exit from '../assets/icons/exit.svg';
 import exitdesktop from '../assets/icons/exitdesktop.svg';
-import logo from '../assets/icons/devaria-logo.png';
+import logo from '../assets/icons/devaria-logo.svg';
 
 
 export const Header = props => {
