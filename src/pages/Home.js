@@ -1,24 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from '../components/Header';
 import { Filtros } from '../components/Filtros';
 import { Listagem } from '../components/Listagem';
 import { Footer } from '../components/Footer';
+import { executaRequisicao } from '../services/api';
+
 
 export const Home = props => {
 
-    const [tarefas, setTarefas] = useState([{
-        id: '12345',
-        nome: 'Tarefa mock1',
-        dataPrevisaoConclusao: '2021-21-12',
-        dataConclusao: null
-    },
-    {
-        id: '135135',
-        nome: 'Tarefa mock2',
-        dataPrevisaoConclusao: '2021-21-12',
-        dataConclusao: '2022-21-12'
+    const [tarefas, setTarefas] = useState([]);
+
+    const getTarefasComFiltro = async () => {
+        try{
+            const resultado = await executaRequisicao('tarefa','GET');
+            if (resultado && resultado.data){
+                setTarefas(resultado.data);
+            }
+        }catch (e){
+            console.log(e);
+        }
     }
-    ]);
+
+    useEffect(() => {
+        getTarefasComFiltro()
+    }, []);
 
     const sair = () => {
         localStorage.removeItem('accessToken');
