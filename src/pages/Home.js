@@ -17,17 +17,15 @@ export const Home = props => {
         try {
 
             let filtros = 'status=' + status
-
             if (periodoDe) {
                 filtros += '&periodoDe=' + periodoDe;
             }
-
             if (periodoAte) {
                 filtros += '&periodoAte=' + periodoAte;
 
             }
 
-            const resultado = await executaRequisicao('tarefa' + filtros, 'GET');
+            const resultado = await executaRequisicao('tarefa?' + filtros, 'GET');
             if (resultado && resultado.data) {
                 setTarefas(resultado.data);
             }
@@ -50,10 +48,10 @@ export const Home = props => {
     return (
         <>
             <Header sair={sair} />
-            <Filtros 
-                periodoDe = {periodoDe}
-                periodoAte = {periodoAte}
-                status = {status}
+            <Filtros
+                periodoDe={periodoDe}
+                periodoAte={periodoAte}
+                status={status}
                 setPeriodoDe={setPeriodoDe}
                 setPeriodoAte={setPeriodoAte}
                 setStatus={setStatus}
