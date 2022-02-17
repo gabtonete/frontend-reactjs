@@ -22,7 +22,7 @@ export const Login = props => {
             const body = {
                 login, senha
             }
-
+            
             const resultado = await executaRequisicao('login', 'POST', body);
             if (resultado?.data?.token) {
                 localStorage.setItem('accessToken', resultado.data.token);

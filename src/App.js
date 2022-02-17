@@ -7,7 +7,7 @@ import './styles/app.scss';
 
 function App() {
 
-const [accessToken, setAccessToken] = useState(localStorage.getItem('accessToken'));
+  const [accessToken, setAccessToken] = useState(localStorage.getItem('accessToken'));
 
   return (
     <Switch>

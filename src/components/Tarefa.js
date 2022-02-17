@@ -6,14 +6,24 @@ import moment from 'moment';
 export const Tarefa = props => {
 
     const { tarefa } = props;
+    const {nome, dataPrevisaoConclusao, dataConclusao} = tarefa;
 
+    const getDataText = (dtConclusao, dtPrevisaoConclusao ) => {
+        if(dtConclusao) {
+            return `Concluído em: ${moment(dtConclusao).format('dd/MM/yyyy')}`
+        }else{
+            return `Previsão de conclusão em: ${moment(dtPrevisaoConclusao).format('dd/MM/yyyy')}`
+        }
+    };
+    
     return (
         <div className="container-tarefa">
             <img
-                src={elipse} alt="Tarefa não concluída" />
+                src={dataConclusao ? check : elipse}
+                alt={dataConclusao ? "tarefa concluída" : "selecine a tarefa"} />
             <div>
-                <p>{tarefa?.nome}</p>
-                <span>Previsão de conclusão em: {moment(tarefa?.dataPrevisaoConclusao).format('dd/MM/yyyy')}</span>
+                <p className={dataConclusao ? "concluido" : ""}>{nome}</p>
+                <span>{getDataText(dataConclusao, dataPrevisaoConclusao)}</span>
             </div>
         </div>
     )
