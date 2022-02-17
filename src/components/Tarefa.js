@@ -10,9 +10,9 @@ export const Tarefa = props => {
 
     const getDataText = (dtConclusao, dtPrevisaoConclusao ) => {
         if(dtConclusao) {
-            return `Concluído em: ${moment(dtConclusao).format('DD/MM/YYYY')}`
+            return `Concluído em: ${moment(dtConclusao).format('Do MMMM YYYY')}`
         }else{
-            return `Previsão de conclusão em: ${moment(dtPrevisaoConclusao).format('DD/MM/YYYY')}`
+            return `Previsão de conclusão em: ${moment(dtPrevisaoConclusao).format('Do MMMM YYYY')}`
         }
     };
     

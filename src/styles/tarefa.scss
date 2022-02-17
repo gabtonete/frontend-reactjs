@@ -35,4 +35,13 @@
             font-weight: normal;
         }
     }
+
+    @media screen and (min-width: 992px) {
+        height: 64px;
+        padding: 20px;
+
+        img {
+            width: 20px;
+        }
+    }
 }
