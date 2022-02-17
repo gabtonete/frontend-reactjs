@@ -54,8 +54,8 @@ export const Filtros = props => {
                     </div>
                     <div>
                         <label>Status:</label>
-                        <select>
-                            value={status} onChange={evento => setStatus(evento.target.value)}
+                        <select
+                            value={status} onChange={evento => setStatus(evento.target.value)}>
                             <option value={0}>Todas</option>
                             <option value={1}>Ativas</option>
                             <option value={2}>Concluídas</option>

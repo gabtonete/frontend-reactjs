@@ -16,7 +16,7 @@ export const Home = props => {
     const getTarefasComFiltro = async () => {
         try {
 
-            let filtros = 'status=' + status
+            let filtros = '?status=' + status
             if (periodoDe) {
                 filtros += '&periodoDe=' + periodoDe;
             }
@@ -25,7 +25,7 @@ export const Home = props => {
 
             }
 
-            const resultado = await executaRequisicao('tarefa?' + filtros, 'GET');
+            const resultado = await executaRequisicao('tarefa' + filtros, 'get');
             if (resultado && resultado.data) {
                 setTarefas(resultado.data);
             }
