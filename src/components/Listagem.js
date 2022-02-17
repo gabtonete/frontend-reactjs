@@ -7,7 +7,7 @@ export const Listagem = props => {
     const { tarefas } = props;
 
     return (
-        <div className={"container-listagem" + (tarefas && tarefas.length > 0 ? "" : "vazia")}>
+        <div className={"container-listagem" + (tarefas && tarefas.length > 0 ? "" : " vazia")}>
 
             {tarefas && tarefas.length > 0 ?
                 tarefas?.map(tarefa => <Tarefa tarefa={tarefa}
@@ -15,7 +15,6 @@ export const Listagem = props => {
                 :
                 <>
                     <img src={vetor} alt="Nenhuma atividade encontrada" />
-                    <p>Você ainda não possui tarefas cadastradas!</p>
                 </>
 
             }
