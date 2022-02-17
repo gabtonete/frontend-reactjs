@@ -37,11 +37,22 @@
     }
 
     @media screen and (min-width: 992px) {
-        height: 64px;
+        height: 70px;
         padding: 20px;
 
         img {
             width: 20px;
+        }
+
+        &.ativo{
+            cursor: pointer;
+
+            &:hover{
+                border-style: solid;
+                border-left: none;
+                border-color: $primaryColor;
+                border-width: 1px;
+            }
         }
     }
 }
