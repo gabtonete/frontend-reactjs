@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Modal } from 'react-bootstrap';
+
 import { Header } from '../components/Header';
 import { Filtros } from '../components/Filtros';
 import { Listagem } from '../components/Listagem';
@@ -12,6 +14,11 @@ export const Home = props => {
     const [periodoDe, setPeriodoDe] = useState('');
     const [periodoAte, setPeriodoAte] = useState('');
     const [status, setStatus] = useState(0);
+    const [showModal, setShowModal] = useState(false);
+
+    const toggleModal = () => {
+        setShowModal(!showModal);
+    }
 
     const getTarefasComFiltro = async () => {
         try {
@@ -57,7 +64,15 @@ export const Home = props => {
                 setStatus={setStatus}
             />
             <Listagem tarefas={tarefas} />
-            <Footer />
+            <Footer showModal={ () => setShowModal(true)}/>
+            <Modal>
+                <Modal.Body show={showModal} onHide={toggleModal}>
+                    <p>Adicionar uma tarefa</p>
+                </Modal.Body>
+                <Modal.Footer>
+
+                </Modal.Footer>
+            </Modal>
         </>
     )
 }
