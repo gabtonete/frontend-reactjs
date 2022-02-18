@@ -11,14 +11,18 @@ import { executaRequisicao } from '../services/api';
 export const Home = props => {
 
     const [tarefas, setTarefas] = useState([]);
+
     const [periodoDe, setPeriodoDe] = useState('');
     const [periodoAte, setPeriodoAte] = useState('');
     const [status, setStatus] = useState(0);
+
     const [showModal, setShowModal] = useState(false);
 
-    const toggleModal = () => {
-        setShowModal(!showModal);
-    }
+
+    const [erro, setErro] = useState('');
+    const [nomeTarefa, setNomeTarefa] = useState('');
+    const [dataPrevisaoTarefa, setDataPrevisaoTarefa] = useState('');
+
 
     const getTarefasComFiltro = async () => {
         try {
@@ -40,6 +44,33 @@ export const Home = props => {
             console.log(e);
         }
     }
+
+    const salvarTarefa = async () => {
+        try {
+            if (!nomeTarefa || !dataPrevisaoTarefa) {
+                setErro('Favor informar nome e data de previsão')
+                return;
+            }
+            const body = {
+                nome: nomeTarefa,
+                dataPrevistaConclusao: dataPrevisaoTarefa
+            };
+
+            await executaRequisicao('tarefa', 'post', body)
+            setNomeTarefa('');
+            setDataPrevisaoTarefa('');
+            setShowModal(false);
+            await getTarefasComFiltro;
+        } catch (e) {
+            console.log(e);
+            if (e?.response?.data?.erro) {
+                setErro(e.response.data.erro);
+            } else {
+                setErro('Não foi possível cadastrar a tarefa, tente novamente')
+            }
+        }
+    }
+
 
     useEffect(() => {
         getTarefasComFiltro()
@@ -64,12 +95,34 @@ export const Home = props => {
                 setStatus={setStatus}
             />
             <Listagem tarefas={tarefas} />
-            <Footer showModal={ () => setShowModal(true)}/>
-            <Modal>
-                <Modal.Body show={showModal} onHide={toggleModal}>
+            <Footer showModal={() => setShowModal(true)} />
+            <Modal show={showModal} onHide={() => setShowModal(false)} className="container-modal">
+                <Modal.Body>
                     <p>Adicionar uma tarefa</p>
+                    {erro && <p className='error'>{erro}</p>}
+                    <input type="text" name="nome"
+                        placeholder="Nome da tarefa"
+                        className="col-12"
+                        value={nomeTarefa}
+                        onChange={evento => setNomeTarefa(evento.target.value)} />
+                    <input type="text" name="dataPrevisao"
+                        placeholder="Data de previsão de conclusão"
+                        className="col-12"
+                        value={dataPrevisaoTarefa}
+                        onChange={evento => setDataPrevisaoTarefa(evento.target.value)}
+                        onFocus={evento => evento.target.type = 'date'}
+                        onBlur={evento => dataPrevisaoTarefa ? evento.target.type = 'date' : evento.target.type = 'text'} />
                 </Modal.Body>
                 <Modal.Footer>
+                    <div className="buttons col-12">
+                        <button onClick={salvarTarefa}>Salvar</button>
+                        <span onClick={() => {
+                            setShowModal(false)
+                            setErro('')
+                            setNomeTarefa('')
+                            setDataPrevisaoTarefa('')
+                        }}>Cancelar</span>
+                    </div>
 
                 </Modal.Footer>
             </Modal>
