@@ -65,7 +65,7 @@ export const Listagem = props => {
 
             console.log(idTarefa);
 
-            await executaRequisicao(`tarefa/${idTarefa}`, 'DELETE');
+            await executaRequisicao(`tarefa/${idTarefa}`, 'delete');
             await getTarefasComFiltro();
             setNomeTarefa('');
             setDataPrevisaoTarefa('');
