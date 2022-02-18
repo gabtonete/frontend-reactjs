@@ -87,7 +87,7 @@ export const Listagem = props => {
             <div className={"container-listagem " + (tarefas && tarefas.length > 0 ? "" : "vazia")}>
 
                 {tarefas && tarefas.length > 0 ?
-                    tarefas?.map(tarefa => <Item tarefa={tarefas} key={tarefa.id} selecionarTarefa={selecionarTarefa} />)
+                    tarefas?.map(tarefa => <Item tarefa={tarefa} key={tarefa.id} selecionarTarefa={selecionarTarefa} />)
                     :
                     <>
                         <img
