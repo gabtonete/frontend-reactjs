@@ -14,7 +14,7 @@ export const executaRequisicao = (endpoint, metodo, body) => {
         headers['Authorization'] = 'Bearer ' + accessToken;
     }
 
-    console.log(`executando: ${baseURL}${endpoint}, metodo ${metodo}, body ${body}, headers ${headers}`);
+    console.log(`executando: ${endpoint}, metodo ${metodo}, body ${body}, headers ${headers}`);
     return instance.request({
         url : endpoint,
         method: metodo,
