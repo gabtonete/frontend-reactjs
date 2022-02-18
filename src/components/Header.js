@@ -6,13 +6,16 @@ import logo from '../assets/icons/devaria-logo.svg';
 
 export const Header = props => {
 
+    const {showModal} = props;
+
+
     const nomeCompleto = localStorage.getItem('usuarioNome');
     const primeiroNome = nomeCompleto?.split(' ')[0] || '';
 
     return (
         <div className="container-header">
             <img src={logo} className="logo" alt="Logo Devaria" />
-            <button><span>+</span> Adicionar Tarefa</button>
+            <button onClick={showModal}><span>+</span> Adicionar Tarefa</button>
  
             <div className="desktop">
                 <span>Olá, {primeiroNome}</span>

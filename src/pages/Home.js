@@ -57,10 +57,10 @@ export const Home = props => {
             };
 
             await executaRequisicao('tarefa', 'post', body)
+            await getTarefasComFiltro;
             setNomeTarefa('');
             setDataPrevisaoTarefa('');
             setShowModal(false);
-            await getTarefasComFiltro;
         } catch (e) {
             console.log(e);
             if (e?.response?.data?.erro) {
@@ -85,7 +85,8 @@ export const Home = props => {
 
     return (
         <>
-            <Header sair={sair} />
+            <Header sair={sair}
+                showModal={() => setShowModal(true)} />
             <Filtros
                 periodoDe={periodoDe}
                 periodoAte={periodoAte}
