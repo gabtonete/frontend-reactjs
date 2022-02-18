@@ -4,20 +4,20 @@
     font-family: 'Biennale Regular';
     font-style: normal;
     font-weight: normal;
-    src: url('../assets/fonts/biennale/Biennale\ Regular.otf') format('opentype');
+    src: url('../assets/fontes/biennale/Biennale\ Regular.otf') format('opentype');
 }
 
-html {
+html{
     height: 100%;
     font-family: 'Biennale Regular';
 }
 
-body {
+body{
     height: 100%;
     font-family: 'Biennale Regular';
 }
 
-#root {
+#root{
     height: 100%;
     display: flex;
     flex: 1 1 0%;
@@ -26,7 +26,7 @@ body {
     justify-content: center;
     -webkit-box-align: center;
     align-items: center;
-    padding: 0px
+    padding: 0px;
 }
 
 @import './config.scss';
@@ -35,56 +35,54 @@ body {
 @import './filtros.scss';
 @import './listagem.scss';
 @import './footer.scss';
-@import './tarefa.scss';
+@import './item.scss';
 @import './modal.scss';
 
-input, select {
-    font-family: 'Biennale Regular';
+input, select{
     font-style: normal;
-    font-size: 16px;
     font-weight: normal;
+    font-size: 16px;
     letter-spacing: 0.01em;
     color: $primaryColor;
     min-width: 220px;
     background-color: transparent;
+    font-family: 'Biennale Regular';
 
     border-top-width: 0em;
     border-left-width: 0em;
     border-right-width: 0em;
     border-bottom-width: 0.1em;
     border-color: $mediumGreyColor;
+
     outline: none;
 
-    &:focus {
+    cursor: pointer;
+
+    &:focus{
         border-color: $primaryColor;
     }
 
-    &::placeholder {
+    &::placeholder{ // Chrome, Firefox, Opera Safari 10+
         color: $mediumGreyColor;
-        opacity: 100%;
+        opacity: 1;
     }
 
-    &:-ms-input-placeholder {
-        color: $mediumGreyColor
+    &:-ms-input-placeholder{ //Internet Explore
+        color: $mediumGreyColor;
     }
 
-    &:-ms-input-placeholder {
-        color: $mediumGreyColor
-    }
-    
-    &::-ms-input-placeholder {
-        color: $mediumGreyColor
+    &::-ms-input-placeholder{ // Microsoft Edge
+        color: $mediumGreyColor;
     }
 }
 
 @media screen and (min-width: 992px) {
-    input, select {
+    input, select{
         border-top-width: 1px;
         border-left-width: 1px;
         border-right-width: 1px;
         border-bottom-width: 1px;
         border-radius: 8px;
-        border-color: $mediumGreyColor;
         padding: 5px;
     }
 }

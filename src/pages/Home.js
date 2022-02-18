@@ -1,39 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import { Modal } from 'react-bootstrap';
 
-import { Header } from '../components/Header';
-import { Filtros } from '../components/Filtros';
-import { Listagem } from '../components/Listagem';
-import { Footer } from '../components/Footer';
+import { Header } from '../componentes/Header';
+import { Filtros } from '../componentes/Filtros';
+import { Listagem } from '../componentes/Listagem';
+import { Footer } from '../componentes/Footer';
 import { executaRequisicao } from '../services/api';
-
 
 export const Home = props => {
 
+    // STATES DA LISTA
     const [tarefas, setTarefas] = useState([]);
-
+    
+    // STATES DOS FILTROS
     const [periodoDe, setPeriodoDe] = useState('');
     const [periodoAte, setPeriodoAte] = useState('');
     const [status, setStatus] = useState(0);
 
+    // STATE DE EXIBICAO DO MODAL
     const [showModal, setShowModal] = useState(false);
 
-
+    // STATES DO CADASTRO
     const [erro, setErro] = useState('');
     const [nomeTarefa, setNomeTarefa] = useState('');
     const [dataPrevisaoTarefa, setDataPrevisaoTarefa] = useState('');
 
-
     const getTarefasComFiltro = async () => {
         try {
+            let filtros = '?status=' + status;
 
-            let filtros = '?status=' + status
             if (periodoDe) {
                 filtros += '&periodoDe=' + periodoDe;
             }
+
             if (periodoAte) {
                 filtros += '&periodoAte=' + periodoAte;
-
             }
 
             const resultado = await executaRequisicao('tarefa' + filtros, 'get');
@@ -45,32 +46,32 @@ export const Home = props => {
         }
     }
 
-    const salvarTarefa = async () => {
-        try {
-            if (!nomeTarefa || !dataPrevisaoTarefa) {
-                setErro('Favor informar nome e data de previsão')
+    const salvarTarefa = async () =>{
+        try{
+            if(!nomeTarefa || !dataPrevisaoTarefa){
+                setErro('Favor informar nome e data de previsão');
                 return;
             }
-            const body = {
-                nome: nomeTarefa,
-                dataPrevistaConclusao: dataPrevisaoTarefa
-            };
 
-            await executaRequisicao('tarefa', 'post', body)
+            const body = {
+                nome : nomeTarefa,
+                dataPrevistaConclusao : dataPrevisaoTarefa
+            }
+
+            await executaRequisicao('tarefa', 'post', body);
             await getTarefasComFiltro();
             setNomeTarefa('');
             setDataPrevisaoTarefa('');
             setShowModal(false);
-        } catch (e) {
+        }catch(e){
             console.log(e);
-            if (e?.response?.data?.erro) {
+            if(e?.response?.data?.erro){
                 setErro(e.response.data.erro);
-            } else {
-                setErro('Não foi possível cadastrar a tarefa, tente novamente')
+            }else{
+                setErro('Não foi possível cadastrar a tarefa, fale com o administrador.')
             }
         }
     }
-
 
     useEffect(() => {
         getTarefasComFiltro()
@@ -85,8 +86,8 @@ export const Home = props => {
 
     return (
         <>
-            <Header sair={sair}
-                showModal={() => setShowModal(true)} />
+            <Header sair={sair} 
+                showModal={() => setShowModal(true)}/>
             <Filtros
                 periodoDe={periodoDe}
                 periodoAte={periodoAte}
@@ -95,12 +96,12 @@ export const Home = props => {
                 setPeriodoAte={setPeriodoAte}
                 setStatus={setStatus}
             />
-            <Listagem tarefas={tarefas} />
+            <Listagem tarefas={tarefas} getTarefasComFiltro={getTarefasComFiltro} />
             <Footer showModal={() => setShowModal(true)} />
             <Modal show={showModal} onHide={() => setShowModal(false)} className="container-modal">
                 <Modal.Body>
                     <p>Adicionar uma tarefa</p>
-                    {erro && <p className='error'>{erro}</p>}
+                    {erro && <p className="error">{erro}</p>}
                     <input type="text" name="nome"
                         placeholder="Nome da tarefa"
                         className="col-12"
@@ -112,7 +113,7 @@ export const Home = props => {
                         value={dataPrevisaoTarefa}
                         onChange={evento => setDataPrevisaoTarefa(evento.target.value)}
                         onFocus={evento => evento.target.type = 'date'}
-                        onBlur={evento => dataPrevisaoTarefa ? evento.target.type = 'date' : evento.target.type = 'text'} />
+                        onBlur={evento => dataPrevisaoTarefa ? evento.target.type = 'date' : evento.target.type = 'text' } />
                 </Modal.Body>
                 <Modal.Footer>
                     <div className="buttons col-12">
@@ -127,5 +128,5 @@ export const Home = props => {
                 </Modal.Footer>
             </Modal>
         </>
-    )
+    );
 }

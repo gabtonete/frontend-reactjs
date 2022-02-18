@@ -9,17 +9,28 @@
     justify-content: flex-start;
 
     &.vazia{
-
         justify-content: center;
     }
 
-    img {
+    img{
         width: 280px;
     }
 
+    p{
+        margin-top: 15px;
+        display: block;
+        font-size: 15px;
+        color: $primaryColor;
+        font-weight: bold;
+    }
+
     @media screen and (min-width: 992px) {
-        img {
+        img{
             width: 500px;
+        }
+
+        p{
+            font-size: 28px;
         }
     }
 }

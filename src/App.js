@@ -1,9 +1,8 @@
-import { Route, Switch } from 'react-router-dom';
-import React, { useState } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import './styles/app.scss';
 import { Login } from './pages/Login';
 import { Home } from './pages/Home';
-import './styles/app.scss';
-
+import { useState } from 'react';
 
 function App() {
 

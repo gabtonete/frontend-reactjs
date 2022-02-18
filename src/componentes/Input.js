@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-
+import React from 'react';
 
 export const Input = props => {
     const {
-        srcImg,
-        srcAlt,
+        srcImg, 
+        altImg, 
         inputType,
         inputName,
         inputPlaceholder,
@@ -12,12 +11,11 @@ export const Input = props => {
         setValue
     } = props;
 
-    return(
+    return (
         <div className="input">
-            <img src={srcImg} alt={srcAlt} />
+            <img src={srcImg} alt={altImg} />
             <input type={inputType} name={inputName} placeholder={inputPlaceholder}
                 value={value} onChange={evento => setValue(evento.target.value)} />
         </div>
-    )
-
+    );
 }

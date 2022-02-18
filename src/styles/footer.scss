@@ -1,6 +1,6 @@
 @import './config.scss';
 
-.container-footer {
+.container-footer{
     display: flex;
     width: 100%;
     align-items: center;
@@ -8,7 +8,7 @@
     padding-bottom: 10px;
     border-top-width: 0px;
 
-    span {
+    span{
         display: none;
     }
 
@@ -21,7 +21,6 @@
         border-style: solid;
         border-radius: 12px;
         width: 96%;
-        height: 40px;
         min-height: 40px;
         padding: 10px;
         padding-left: 15px;
@@ -30,25 +29,28 @@
         font-size: 16px;
         align-items: center;
 
-        img {
+        img{
             margin-right: 15px;
         }
     }
 
     @media screen and (min-width: 992px) {
-        height: 40px;
+        height: 60px;
         border-top-color: $lightGreyColor;
         border-top-width: 2px;
-        border-top-style: solid;
+        border-right-width: 0px;
+        border-left-width: 0px;
+        border-bottom-width: 0px;
+        border-style: solid;
         padding-bottom: 0px;
 
-        span {
+        span{
             display: block;
             font-size: 14px;
             color: $primaryColor;
         }
 
-        button {
+        button{
             display: none;
         }
     }
