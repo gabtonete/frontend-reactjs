@@ -57,7 +57,7 @@ export const Home = props => {
             };
 
             await executaRequisicao('tarefa', 'post', body)
-            await getTarefasComFiltro;
+            await getTarefasComFiltro();
             setNomeTarefa('');
             setDataPrevisaoTarefa('');
             setShowModal(false);
@@ -124,7 +124,6 @@ export const Home = props => {
                             setDataPrevisaoTarefa('')
                         }}>Cancelar</span>
                     </div>
-
                 </Modal.Footer>
             </Modal>
         </>
