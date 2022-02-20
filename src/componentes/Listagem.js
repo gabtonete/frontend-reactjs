@@ -39,7 +39,7 @@ export const Listagem = props => {
                 dataConclusao: dataConclusao
             }
 
-            await executaRequisicao('tarefa/'+idTarefa, 'put', body);
+            await executaRequisicao('tarefa/'+idTarefa, 'PUT', body);
             await getTarefasComFiltro();
             setNomeTarefa('');
             setDataPrevisaoTarefa('');
@@ -65,7 +65,7 @@ export const Listagem = props => {
 
             console.log(idTarefa);
 
-            await executaRequisicao(`tarefa/${idTarefa}`, 'delete');
+            await executaRequisicao(`tarefa/${idTarefa}`, 'DELETE');
             await getTarefasComFiltro();
             setNomeTarefa('');
             setDataPrevisaoTarefa('');

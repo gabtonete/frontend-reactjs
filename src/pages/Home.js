@@ -37,7 +37,7 @@ export const Home = props => {
                 filtros += '&periodoAte=' + periodoAte;
             }
 
-            const resultado = await executaRequisicao('tarefa' + filtros, 'get');
+            const resultado = await executaRequisicao('tarefa' + filtros, 'GET');
             if (resultado && resultado.data) {
                 setTarefas(resultado.data);
             }
@@ -58,7 +58,7 @@ export const Home = props => {
                 dataPrevistaConclusao : dataPrevisaoTarefa
             }
 
-            await executaRequisicao('tarefa', 'post', body);
+            await executaRequisicao('tarefa', 'POST', body);
             await getTarefasComFiltro();
             setNomeTarefa('');
             setDataPrevisaoTarefa('');

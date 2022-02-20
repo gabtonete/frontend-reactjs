@@ -1,25 +1,31 @@
 import axios from 'axios';
 
 const instance = axios.create({
-    baseURL : 'https://apirestgabrielt.herokuapp.com/api/',
+    baseURL: 'http://localhost:3001/api/',
     timeout: 30000
 });
 
 export const executaRequisicao = (endpoint, metodo, body) => {
 
-    const accessToken =  localStorage.getItem('accessToken');
+    const accessToken = localStorage.getItem('accessToken');
 
-    let headers = { 'Content-Type' : 'application/json'};
+    let headers = null;
 
-    if(accessToken){
+    if (metodo === 'DELETE') {
+        headers = { 'Content-Type': 'text/plain' };
+    } else {
+        headers = { 'Content-Type': 'application/json' };
+    }
+
+    if (accessToken) {
         headers['Authorization'] = 'Bearer ' + accessToken;
     }
 
     console.log(`executando: ${endpoint}, metodo ${metodo}, body ${body}, headers ${headers}`);
     return instance.request({
-        url : endpoint,
+        url: endpoint,
         method: metodo,
-        data : body? body : '',
-        headers : headers
+        data: body ? body : '',
+        headers: headers,
     });
 }

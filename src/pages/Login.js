@@ -13,28 +13,30 @@ export const Login = props => {
     const [isLoading, setLoading] = useState(false);
 
     const executaLogin = async evento => {
-        try{
+        try {
             evento.preventDefault();
             setLoading(true);
-            setMsgErro('');
-            
+            setMsgErro("");
+
             const body = {
                 login,
-                senha
+                senha,
             };
-    
-            const resultado = await executaRequisicao('login', 'post', body);
-            if(resultado?.data?.token){
-                localStorage.setItem('accessToken', resultado.data.token);
-                localStorage.setItem('usuarioNome', resultado.data.nome);
-                localStorage.setItem('usuarioEmail', resultado.data.email);
+
+            console.log(body);
+
+            const resultado = await executaRequisicao("login", "POST", body);
+            if (resultado?.data?.token) {
+                localStorage.setItem("accessToken", resultado.data.token);
+                localStorage.setItem("usuarioNome", resultado.data.nome);
+                localStorage.setItem("usuarioEmail", resultado.data.email);
                 props.setAccessToken(resultado.data.token);
             }
-        }catch(e){
+        } catch (e) {
             console.log(e);
-            if(e?.response?.data?.erro){
+            if (e?.response?.data?.erro) {
                 setMsgErro(e.response.data.erro);
-            }else{
+            } else {
                 setMsgErro('Não foi possível efetuar o login, fale com o administrador.')
             }
         }
@@ -42,26 +44,25 @@ export const Login = props => {
     }
 
     return (
-        <div className="container-login">
-            <img 
-                src={logo}
+        <div className="container-login" >
+            <img src={logo}
                 alt="Logo Devaria"
                 className="logo"
             />
-            <form>
-                {msgErro && <p>{msgErro}</p>}
-                <Input 
+            <form> {
+                msgErro && < p > {msgErro} </p>}
+                <Input
                     srcImg={mail}
-                    altImg={"Icone email"} 
+                    altImg={"Icone email"}
                     inputType="text"
                     inputName="login"
                     inputPlaceholder="Informe seu email"
                     value={login}
                     setValue={setLogin}
                 />
-                <Input 
+                <Input
                     srcImg={lock}
-                    altImg={"Icone senha"} 
+                    altImg={"Icone senha"}
                     inputType="password"
                     inputName="senha"
                     inputPlaceholder="Informe sua senha"
@@ -69,8 +70,9 @@ export const Login = props => {
                     setValue={setSenha}
                 />
 
-                <button onClick={executaLogin} disabled={isLoading}>{isLoading === true ? '...Carregando' : 'Entrar'}</button>
+                <button onClick={executaLogin}
+                    disabled={isLoading} > {isLoading === true ? '...Carregando' : 'Entrar'} </button>
             </form>
         </div>
     );
-} 
+}
