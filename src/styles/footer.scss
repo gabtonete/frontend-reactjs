@@ -1,67 +1,101 @@
-@import './config.scss';
+@import "./config.scss";
 
-.container-footer{
+.container-footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+  border-top-width: 0px;
+
+  .adicionarMobile {
     display: flex;
-    width: 100%;
+    flex-direction: row;
+    background-color: $lightGreyColor;
+    border-color: $primaryColor;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 12px;
+    width: 96%;
+    min-height: 40px;
+    padding: 10px;
+    padding-left: 15px;
+    cursor: pointer;
+    color: $primaryColor;
+    font-size: 16px;
     align-items: center;
-    justify-content: center;
-    padding-bottom: 10px;
-    border-top-width: 0px;
 
-    .spanHome{
-        display: none;
+    img {
+      margin-right: 15px;
     }
+  }
 
-    .spanLogin{
-        display: block;
-        font-size: 14px;
-        color: $primaryColor;
+  .footerDesktop {
+    display: none;
+  }
+
+  .spanDesktop {
+    display: none;
+  }
+
+  .footerDeslogado {
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+    justify-content: space-between;
+
+    a {
+      margin-right: 50px;
+      margin-left: 50px;
+
+      img {
+        width: 35px;
+      }
     }
+  }
 
-    .buttonHome {
-        display: flex;
-        flex-direction: row;
-        background-color: $lightGreyColor;
-        border-color: $primaryColor;
-        border-width: 1px;
-        border-style: solid;
-        border-radius: 12px;
-        width: 96%;
-        min-height: 40px;
-        padding: 10px;
-        padding-left: 15px;
+  .spanDeslogado {
+    display: block;
+    font-size: 14px;
+    color: $primaryColor;
+  }
+
+  @media screen and (min-width: 992px) {
+    border-top-color: $lightGreyColor;
+    border-top-width: 2px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+    border-bottom-width: 0px;
+    border-style: solid;
+    padding-bottom: 0px;
+    margin-bottom: 15px;
+
+    .adicionarMobile {
+      display: none;
+    }
+    .footerDesktop {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 5px;
+      justify-content: space-between;
+
+      a {
         cursor: pointer;
-        color: $primaryColor;
-        font-size: 16px;
-        align-items: center;
+        margin-right: 50px;
+        margin-left: 50px;
 
-        img{
-            margin-right: 15px;
+        img {
+          width: 35px;
         }
+      }
     }
 
-    .buttonLogin {
-        display: none;
+    .spanDesktop {
+      display: block;
+      font-size: 14px;
+      color: $primaryColor;
     }
-
-    @media screen and (min-width: 992px) {
-        height: 60px;
-        border-top-color: $lightGreyColor;
-        border-top-width: 2px;
-        border-right-width: 0px;
-        border-left-width: 0px;
-        border-bottom-width: 0px;
-        border-style: solid;
-        padding-bottom: 0px;
-
-        .spanHome{
-            display: block;
-            font-size: 14px;
-            color: $primaryColor;
-        }
-
-        .buttonHome{
-            display: none;
-        }
-    }
+  }
 }
