@@ -3,7 +3,7 @@ import filtro from '../assets/icones/filtro.svg';
 
 export const Filtros = props => {
 
-    const {periodoDe, periodoAte, status, setPeriodoDe, setPeriodoAte, setStatus} = props;
+    const { periodoDe, periodoAte, status, setPeriodoDe, setPeriodoAte, setStatus } = props;
 
     const [showFiltros, setShowFiltro] = useState(false);
 
@@ -17,11 +17,11 @@ export const Filtros = props => {
                 <div className="form">
                     <div>
                         <label>Data prevista de conclusão de:</label>
-                        <input type="date" value={periodoDe} onChange={evento => setPeriodoDe(evento.target.value)}/>
+                        <input type="date" value={periodoDe} onChange={evento => setPeriodoDe(evento.target.value)} />
                     </div>
                     <div>
                         <label>até:</label>
-                        <input type="date" value={periodoAte} onChange={evento => setPeriodoAte(evento.target.value)}/>
+                        <input type="date" value={periodoAte} onChange={evento => setPeriodoAte(evento.target.value)} />
                     </div>
                     <div className="line" />
                     <div>
@@ -39,15 +39,17 @@ export const Filtros = props => {
                 <div className="filtrosMobile">
                     <div>
                         <label>Período de:</label>
-                        <input type="date" />
+                        <input type="date" value={periodoDe} onChange={evento => setPeriodoDe(evento.target.value)} />
+
                     </div>
                     <div>
                         <label>Período até:</label>
-                        <input type="date" />
+                        <input type="date" value={periodoAte} onChange={evento => setPeriodoAte(evento.target.value)} />
                     </div>
                     <div>
                         <label>Status:</label>
-                        <select>
+                        <select
+                            value={status} onChange={evento => setStatus(evento.target.value)}>
                             <option value={0}>Todas</option>
                             <option value={1}>Ativas</option>
                             <option value={2}>Concluídas</option>
