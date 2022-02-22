@@ -117,6 +117,7 @@ export const Login = props => {
                     Cadastre-se
                 </div>
             </form>
+            <Footer />
                 <Modal show={showModal} onHide={() => setShowModal(false)} className="container-modal">
                     <Modal.Body>
                         <p>Cadastre-se</p>

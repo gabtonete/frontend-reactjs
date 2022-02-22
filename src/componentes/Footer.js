@@ -6,7 +6,7 @@ export const Footer = props => {
     return (
         <div className="container-footer">
             <button onClick={showModal}><img src={adicionar} alt="Adicionar tarefa" />Adicionar tarefa</button>
-            <span>{new Date().getFullYear()} Fvck Rights.</span>
+            <span>{new Date().getFullYear()} Fvck Rights. Use dados fictícios</span>
         </div>
     )
 }
