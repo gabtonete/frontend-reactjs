@@ -77,7 +77,8 @@ export const Home = props => {
         getTarefasComFiltro()
     }, [status, periodoDe, periodoAte]);
 
-    const sair = () => {
+    const sair = async () => {
+        await executaRequisicao('usuario','DELETE');
         localStorage.removeItem('accessToken');
         localStorage.removeItem('usuarioNome');
         localStorage.removeItem('usuarioEmail');

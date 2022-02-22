@@ -42,7 +42,7 @@ export const Footer = props => {
             }
             <Modal show={mostraModal} onHide={() => setMostraModal(false)} className="container-modal">
                 <Modal.Body>
-                    <p>Todos os dados inseridos na plataforma serão apagados do banco de dados em breve.
+                    <p>Por se tratar de um app em estado de desenvolvimento, todos os dados inseridos na plataforma serão apagados do banco de dados ao deslogar.
                         <br />
                         <br />Para mais informações acesse o repositório do github.
                     </p>
