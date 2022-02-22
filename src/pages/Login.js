@@ -5,9 +5,8 @@ import lock from '../assets/icones/lock.svg';
 import { Input } from '../componentes/Input';
 import { executaRequisicao } from '../services/api';
 import { Modal } from 'react-bootstrap';
-
+import { Footer } from '../componentes/Footer';
 export const Login = props => {
-
 
     const [login, setLogin] = useState('');
     const [senha, setSenha] = useState('');
@@ -25,7 +24,6 @@ export const Login = props => {
             setLoading(true);
             setMsgErro('');
             setSuccess('');
-
 
             const body = {
                 login,
@@ -63,11 +61,11 @@ export const Login = props => {
 
             const resultado = await executaRequisicao("usuario", "POST", body);
 
-            if(resultado?.data?.msg){
+            if (resultado?.data?.msg) {
                 setSuccess(resultado.data.msg)
             }
             setShowModal(false);
-        }catch(e) {
+        } catch (e) {
             console.log(e);
             if (e?.response?.data?.erro) {
                 setMsgErro("Cadastro inválido");
@@ -84,40 +82,41 @@ export const Login = props => {
     }
 
     return (
-        <div className="container-login" >
-            <img src={logo}
-                alt="Logo Devaria"
-                className="logo"
-            />
-            <form>
-                {msgErro && <p className="error"> {msgErro} </p>}
-                {success && <p className="success">{success}</p>}
-                <Input
-                    srcImg={mail}
-                    altImg={"Icone email"}
-                    inputType="text"
-                    inputName="login"
-                    inputPlaceholder="Informe seu email"
-                    value={login}
-                    setValue={setLogin}
+        <>
+            <div className="container-login" >
+                <img src={logo}
+                    alt="Logo Devaria"
+                    className="logo"
                 />
-                <Input
-                    srcImg={lock}
-                    altImg={"Icone senha"}
-                    inputType="password"
-                    inputName="senha"
-                    inputPlaceholder="Informe sua senha"
-                    value={senha}
-                    setValue={setSenha}
-                />
-                <button onClick={executaLogin}
-                    disabled={isLoading} > {isLoading === true ? '...Carregando' : 'Entrar'}
-                </button>
-                <div className="signup" onClick={() => setShowModal(true)}>
-                    Cadastre-se
-                </div>
-            </form>
-            <Footer />
+                <form>
+                    {msgErro && <p className="error"> {msgErro} </p>}
+                    {success && <p className="success">{success}</p>}
+                    <Input
+                        srcImg={mail}
+                        altImg={"Icone email"}
+                        inputType="text"
+                        inputName="login"
+                        inputPlaceholder="Informe seu email"
+                        value={login}
+                        setValue={setLogin}
+                    />
+                    <Input
+                        srcImg={lock}
+                        altImg={"Icone senha"}
+                        inputType="password"
+                        inputName="senha"
+                        inputPlaceholder="Informe sua senha"
+                        value={senha}
+                        setValue={setSenha}
+                    />
+                    <button onClick={executaLogin}
+                        disabled={isLoading} > {isLoading === true ? '...Carregando' : 'Entrar'}
+                    </button>
+                    <div className="signup" onClick={() => setShowModal(true)}>
+                        Cadastre-se
+                    </div>
+                </form>
+
                 <Modal show={showModal} onHide={() => setShowModal(false)} className="container-modal">
                     <Modal.Body>
                         <p>Cadastre-se</p>
@@ -125,13 +124,13 @@ export const Login = props => {
                             placeholder="Insira o nome"
                             className="col-12"
                             value={nome}
-                            onChange={evento => setNome(evento.target.value)} 
+                            onChange={evento => setNome(evento.target.value)}
                         />
                         <input type="text" name="loginUsuario"
                             placeholder="Insira o email"
                             className="col-12"
                             value={emailUsuario}
-                            onChange={evento => setEmailUsuario(evento.target.value)} 
+                            onChange={evento => setEmailUsuario(evento.target.value)}
                         />
                         <input type="password" name="senhaUsuario"
                             placeholder="Insira a senha"
@@ -146,6 +145,8 @@ export const Login = props => {
                         </div>
                     </Modal.Footer>
                 </Modal>
-        </div>
+            </div>
+            <Footer />
+        </>
     );
 }

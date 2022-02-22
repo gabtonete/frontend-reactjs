@@ -5,8 +5,8 @@ export const Footer = props => {
     const {showModal} = props;
     return (
         <div className="container-footer">
-            <button onClick={showModal}><img src={adicionar} alt="Adicionar tarefa" />Adicionar tarefa</button>
-            <span>{new Date().getFullYear()} Fvck Rights. Use dados fictícios</span>
+            <button className={localStorage.getItem('accessToken') ? "buttonHome" : "buttonLogin"} onClick={showModal}><img src={adicionar} alt="Adicionar tarefa" />Adicionar tarefa</button>
+            <span className={localStorage.getItem('accessToken') ? "spanHome" : "spanLogin"}>{new Date().getFullYear()} Fvck Rights. <b>USE DADOS FICTÍCIOS.</b></span>
         </div>
     )
 }

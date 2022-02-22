@@ -1,6 +1,8 @@
 @import './config.scss';
 
 .container-login{
+    margin: auto;
+    
     .logo {
         display: block;
         margin: auto;
@@ -89,6 +91,7 @@
     @media screen and (min-width:992px) {
         display: flex;
         flex-direction: row;
+        margin: auto;
 
         .logo{
             width: 520px;

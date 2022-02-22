@@ -8,11 +8,17 @@
     padding-bottom: 10px;
     border-top-width: 0px;
 
-    span{
+    .spanHome{
         display: none;
     }
 
-    button {
+    .spanLogin{
+        display: block;
+        font-size: 14px;
+        color: $primaryColor;
+    }
+
+    .buttonHome {
         display: flex;
         flex-direction: row;
         background-color: $lightGreyColor;
@@ -34,6 +40,10 @@
         }
     }
 
+    .buttonLogin {
+        display: none;
+    }
+
     @media screen and (min-width: 992px) {
         height: 60px;
         border-top-color: $lightGreyColor;
@@ -50,7 +60,7 @@
             color: $primaryColor;
         }
 
-        button{
+        .buttonHome{
             display: none;
         }
     }
