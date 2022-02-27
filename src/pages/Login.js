@@ -127,7 +127,7 @@ export const Login = props => {
                             onChange={evento => setNome(evento.target.value)}
                         />
                         <input type="text" name="loginUsuario"
-                            placeholder="Insira o email"
+                            placeholder="lorem@ipsum.com"
                             className="col-12"
                             value={emailUsuario}
                             onChange={evento => setEmailUsuario(evento.target.value)}
