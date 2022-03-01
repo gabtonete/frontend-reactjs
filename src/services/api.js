@@ -3,7 +3,7 @@ import axios from 'axios';
 const urlBase = process.env.APIURL
 
 const instance = axios.create({
-    baseURL: urlBase,
+    baseURL: 'https://apirestgabrielt.herokuapp.com/api/',
     //baseURL: 'http://localhost:3001/api/',
     timeout: 30000
 });
