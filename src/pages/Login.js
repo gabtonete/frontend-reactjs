@@ -20,6 +20,8 @@ export const Login = props => {
 
     const executaLogin = async evento => {
         try {
+            const urlBase = process.env.APIURL
+            console.log(urlBase)
             evento.preventDefault();
             setLoading(true);
             setMsgErro('');

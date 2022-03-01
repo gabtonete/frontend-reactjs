@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const urlBase = process.env.APIURL
+console.log(urlBase)
 
 const instance = axios.create({
     baseURL: 'https://apirestgabrielt.herokuapp.com/api/',
