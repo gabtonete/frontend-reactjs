@@ -63,8 +63,6 @@ export const Listagem = props => {
                 return;
             }
 
-            console.log(idTarefa);
-
             await executaRequisicao(`tarefa/${idTarefa}`, 'DELETE');
             await getTarefasComFiltro();
             setNomeTarefa('');
