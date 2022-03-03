@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const urlBase = process.env.APIURL
+const urlBase = process.env.REACT_APP_APIURL
 console.log(urlBase)
 
 const instance = axios.create({
-    baseURL: 'https://apirestgabrielt.herokuapp.com/api/',
+    baseURL: urlBase,
     //baseURL: 'http://localhost:3001/api/',
     timeout: 30000
 });
