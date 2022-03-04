@@ -14,14 +14,13 @@ export const Login = props => {
     const [isLoading, setLoading] = useState(false);
     const [success, setSuccess] = useState('');
     const [showModal, setShowModal] = useState(false);
+
     const [nome, setNome] = useState('')
     const [emailUsuario, setEmailUsuario] = useState('')
     const [senhaUsuario, setSenhaUsuario] = useState('')
 
     const executaLogin = async evento => {
         try {
-            const urlBase = process.env.APIURL
-            console.log(urlBase)
             evento.preventDefault();
             setLoading(true);
             setMsgErro('');
@@ -50,7 +49,7 @@ export const Login = props => {
 
         setLoading(false);
     }
-    const cadastrarUsuario = async evento => {
+    const cadastrarUsuario = async () => {
         try {
             setSuccess('');
             setMsgErro('');
