@@ -1,7 +1,7 @@
 
 # Task manager in react.js
 <a href="https://reactjsgabt.herokuapp.com/" target="blank">Link para o projeto</a> |
-<a href="https://github.com/gabtonete/backend-task-nodejs" target="blank">API utilizada (node.js)</a>
+<a href="https://github.com/gabtonete/backend-heroku-task-node" target="blank">API utilizada (node.js)</a>
 
 Esse projeto apresenta um site 100% responsivo, utilizando o conceito de mobile first.
 Todo o backend foi construído em cima da arquitetura API Rest model-view-controller, com conexão ao MongoDB utilizando o mongoose.
