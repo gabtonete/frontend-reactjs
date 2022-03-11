@@ -30,7 +30,7 @@ export const Footer = props => {
                 :
                 <>
                     <div className="footerDeslogado">
-                        <a href="https://github.com/gabtonete/frontend-task-reactjs" target="_blank">
+                        <a href="https://github.com/gabtonete/frontend-task-reactjs" target="_blank" rel="noopener noreferrer">
                             <img src={github} alt="Acesse o github do projeto" />
                         </a>
                         <a onClick={() => setMostraModal(true)}>
