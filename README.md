@@ -1,6 +1,6 @@
 
 # Task manager in react.js
-<a href="https://reactjsgabt.herokuapp.com/" target="blank">Link para o projeto</a> |
+<a href="https://frontend-task-reactjs.herokuapp.com/" target="blank">Link para o projeto</a> |
 <a href="https://github.com/gabtonete/backend-task-node" target="blank">API utilizada (node.js)</a>
 
 Esse projeto apresenta um site 100% responsivo, utilizando o conceito de mobile first.
