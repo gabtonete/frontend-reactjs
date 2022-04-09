@@ -17,3 +17,10 @@ Todo o backend foi construído em cima da arquitetura API Rest model-view-contro
 - Arquitetura MVC e api's RESTful utilizando as melhores práticas de programação
 - Todas as api's utilizam JWT, priorizando a segurança do usuário e do sistema
 - Métodos CRUD do mongoose para manipulação do banco de dados
+
+## Execução da aplicação
+
+1. Clone o projeto com `git clone https://github.com/gabtonete/frontend-task-reactjs`
+2. Execute `npm install` para instalar as dependências do projeto
+3. Configure as variáveis de ambiente em `.env` ou `.env.local`
+4. Execute o comando `npm start` para carregar a aplicação react.js
